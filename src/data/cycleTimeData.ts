@@ -1,6 +1,9 @@
+export type IssueType = "Story" | "Bug" | "Task" | "Improvement";
+
 export interface Story {
   id: string;
   name: string;
+  issueType: IssueType;
   epic: string;
   storyPoints: number;
   assignee: string;
