@@ -2,6 +2,7 @@ import { useState } from "react";
 import { sprints } from "@/data/cycleTimeData";
 import CycleTimeList from "@/components/CycleTimeList";
 import CycleTimeByStageChart from "@/components/CycleTimeByStageChart";
+import IssueTypeBreakdownChart from "@/components/IssueTypeBreakdownChart";
 import {
   Select,
   SelectContent,
