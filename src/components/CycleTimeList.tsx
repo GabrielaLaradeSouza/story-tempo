@@ -1,4 +1,4 @@
-import { Sprint } from "@/data/cycleTimeData";
+import { Sprint, IssueType } from "@/data/cycleTimeData";
 import {
   Table,
   TableBody,
@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Clock } from "lucide-react";
+import { Clock, BookOpen, Bug, CheckSquare, Sparkles } from "lucide-react";
 
 interface CycleTimeListProps {
   sprint: Sprint;
