@@ -92,7 +92,8 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
                   </span>
                 </TableCell>
               </TableRow>
-            ))}
+              );
+            })}
           </TableBody>
         </Table>
       </div>
