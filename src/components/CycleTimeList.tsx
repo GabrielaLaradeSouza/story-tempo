@@ -59,10 +59,19 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {sprint.stories.map((story) => (
+            {sprint.stories.map((story) => {
+              const typeConfig = issueTypeConfig[story.issueType];
+              const TypeIcon = typeConfig.icon;
+              return (
               <TableRow key={story.id} className="hover:bg-muted/30 transition-colors">
                 <TableCell className="font-medium max-w-[260px] truncate">
                   {story.name}
+                </TableCell>
+                <TableCell>
+                  <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ${typeConfig.className}`}>
+                    <TypeIcon className="h-3 w-3" />
+                    {typeConfig.label}
+                  </span>
                 </TableCell>
                 <TableCell>
                   <Badge variant="secondary" className="font-normal">
