@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Timer, BarChart3 } from "lucide-react";
+import { Timer, BarChart3, PieChart } from "lucide-react";
 
 const Index = () => {
   const [selectedSprintId, setSelectedSprintId] = useState(sprints[0].id);
