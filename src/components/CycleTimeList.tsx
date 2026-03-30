@@ -1,4 +1,4 @@
-import { Sprint } from "@/data/cycleTimeData";
+import { Sprint, IssueType } from "@/data/cycleTimeData";
 import {
   Table,
   TableBody,
@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Clock } from "lucide-react";
+import { Clock, BookOpen, Bug, CheckSquare, Sparkles } from "lucide-react";
 
 interface CycleTimeListProps {
   sprint: Sprint;
@@ -18,6 +18,13 @@ const getCycleTimeColor = (days: number) => {
   if (days <= 2) return "bg-emerald-100 text-emerald-800";
   if (days <= 5) return "bg-amber-100 text-amber-800";
   return "bg-red-100 text-red-800";
+};
+
+const issueTypeConfig: Record<IssueType, { icon: typeof BookOpen; label: string; className: string }> = {
+  Story: { icon: BookOpen, label: "Story", className: "bg-blue-100 text-blue-800" },
+  Bug: { icon: Bug, label: "Bug", className: "bg-red-100 text-red-800" },
+  Task: { icon: CheckSquare, label: "Task", className: "bg-purple-100 text-purple-800" },
+  Improvement: { icon: Sparkles, label: "Improvement", className: "bg-teal-100 text-teal-800" },
 };
 
 const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
@@ -44,6 +51,7 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
           <TableHeader>
             <TableRow className="bg-muted/50">
               <TableHead className="font-semibold">Story</TableHead>
+              <TableHead className="font-semibold">Tipo</TableHead>
               <TableHead className="font-semibold">Épico</TableHead>
               <TableHead className="font-semibold text-center">SP</TableHead>
               <TableHead className="font-semibold">Responsável</TableHead>
@@ -51,10 +59,19 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {sprint.stories.map((story) => (
+            {sprint.stories.map((story) => {
+              const typeConfig = issueTypeConfig[story.issueType];
+              const TypeIcon = typeConfig.icon;
+              return (
               <TableRow key={story.id} className="hover:bg-muted/30 transition-colors">
                 <TableCell className="font-medium max-w-[260px] truncate">
                   {story.name}
+                </TableCell>
+                <TableCell>
+                  <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ${typeConfig.className}`}>
+                    <TypeIcon className="h-3 w-3" />
+                    {typeConfig.label}
+                  </span>
                 </TableCell>
                 <TableCell>
                   <Badge variant="secondary" className="font-normal">
@@ -75,7 +92,8 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
                   </span>
                 </TableCell>
               </TableRow>
-            ))}
+              );
+            })}
           </TableBody>
         </Table>
       </div>
