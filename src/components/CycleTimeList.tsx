@@ -20,6 +20,13 @@ const getCycleTimeColor = (days: number) => {
   return "bg-red-100 text-red-800";
 };
 
+const issueTypeConfig: Record<IssueType, { icon: typeof BookOpen; label: string; className: string }> = {
+  Story: { icon: BookOpen, label: "Story", className: "bg-blue-100 text-blue-800" },
+  Bug: { icon: Bug, label: "Bug", className: "bg-red-100 text-red-800" },
+  Task: { icon: CheckSquare, label: "Task", className: "bg-purple-100 text-purple-800" },
+  Improvement: { icon: Sparkles, label: "Improvement", className: "bg-teal-100 text-teal-800" },
+};
+
 const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
   const avgCycleTime =
     sprint.stories.reduce((sum, s) => sum + s.cycleTimeDays, 0) /
