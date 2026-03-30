@@ -51,6 +51,7 @@ const CycleTimeList = ({ sprint }: CycleTimeListProps) => {
           <TableHeader>
             <TableRow className="bg-muted/50">
               <TableHead className="font-semibold">Story</TableHead>
+              <TableHead className="font-semibold">Tipo</TableHead>
               <TableHead className="font-semibold">Épico</TableHead>
               <TableHead className="font-semibold text-center">SP</TableHead>
               <TableHead className="font-semibold">Responsável</TableHead>
