@@ -18,7 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Clock, BookOpen, Bug, CheckSquare, Sparkles, Plus, Trash2, Pencil, Check, X } from "lucide-react";
+import { Clock, BookOpen, Bug, CheckSquare, Sparkles, Plus, Trash2, Pencil, Check, X, CheckCircle2, Circle } from "lucide-react";
 
 interface CycleTimeListProps {
   sprint: Sprint;
