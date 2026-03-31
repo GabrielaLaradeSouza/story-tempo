@@ -10,6 +10,7 @@ export interface Story {
   cycleTimeDays: number;
   inProgressDays: number;
   codeReviewDays: number;
+  done: boolean;
 }
 
 export interface Sprint {
