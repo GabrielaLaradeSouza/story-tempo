@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Timer, BarChart3, PieChart, Plus, Trash2 } from "lucide-react";
+import { Timer, BarChart3, PieChart, Plus, Trash2, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
