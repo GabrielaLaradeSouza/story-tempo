@@ -308,6 +308,20 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
                       {story.cycleTimeDays}d
                     </span>
                   </TableCell>
+                  <TableCell className="text-center">
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => toggleDone(story.id)}
+                      className="h-7 w-7"
+                    >
+                      {story.done ? (
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
+                      ) : (
+                        <Circle className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </Button>
+                  </TableCell>
                   <TableCell>
                     <div className="flex items-center justify-center gap-1">
                       <Button size="icon" variant="ghost" onClick={() => startEdit(story)} className="h-7 w-7">

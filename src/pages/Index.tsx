@@ -131,7 +131,23 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Section 3: Issue Type Breakdown */}
+        {/* Section 3: Story Points Estimado vs Entregue */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="h-5 w-5 text-primary" />
+            <h2 className="text-xl font-semibold text-foreground">
+              Story Points: Estimado vs Entregue
+            </h2>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Comparação entre story points planejados e efetivamente entregues na sprint
+          </p>
+          <div className="rounded-xl border bg-card p-6 shadow-sm">
+            <StoryPointsChart sprint={selectedSprint} />
+          </div>
+        </section>
+
+        {/* Section 4: Issue Type Breakdown */}
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <PieChart className="h-5 w-5 text-primary" />
