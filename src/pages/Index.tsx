@@ -3,6 +3,7 @@ import { sprints as initialSprints, Sprint, Story, IssueType } from "@/data/cycl
 import CycleTimeList from "@/components/CycleTimeList";
 import CycleTimeByStageChart from "@/components/CycleTimeByStageChart";
 import IssueTypeBreakdownChart from "@/components/IssueTypeBreakdownChart";
+import StoryPointsChart from "@/components/StoryPointsChart";
 import {
   Select,
   SelectContent,
