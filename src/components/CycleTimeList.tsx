@@ -50,6 +50,7 @@ const createEmptyStory = (): Story => ({
   cycleTimeDays: 0,
   inProgressDays: 0,
   codeReviewDays: 0,
+  done: false,
 });
 
 const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
