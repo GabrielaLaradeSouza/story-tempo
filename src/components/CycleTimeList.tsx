@@ -101,7 +101,7 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
     if (editingId === storyId) cancelEdit();
   };
 
-  const updateEditField = (field: keyof Story, value: string | number) => {
+  const updateEditField = (field: keyof Story, value: string | number | boolean) => {
     if (!editData) return;
     setEditData({ ...editData, [field]: value });
   };
