@@ -106,6 +106,18 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
     setEditData({ ...editData, [field]: value });
   };
 
+  const toggleDone = (storyId: string) => {
+    onUpdate({
+      ...sprint,
+      stories: sprint.stories.map((s) =>
+        s.id === storyId ? { ...s, done: !s.done } : s
+      ),
+    });
+  };
+
+  const totalSP = sprint.stories.reduce((sum, s) => sum + s.storyPoints, 0);
+  const deliveredSP = sprint.stories.filter((s) => s.done).reduce((sum, s) => sum + s.storyPoints, 0);
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -116,8 +128,13 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
               Média: {avgCycleTime.toFixed(1)} dias
             </span>
           </div>
+          <div className="flex items-center gap-2 rounded-lg bg-muted px-3 py-1.5">
+            <span className="text-sm font-semibold text-foreground">
+              SP Entregues: {deliveredSP} / {totalSP}
+            </span>
+          </div>
           <span className="text-sm text-muted-foreground">
-            {sprint.stories.length} stories concluídas
+            {sprint.stories.length} stories
           </span>
         </div>
         <Button size="sm" variant="outline" onClick={addStory} className="gap-1.5">
