@@ -24,12 +24,12 @@ export const sprints: Sprint[] = [
     id: "sprint-12",
     name: "Sprint 12",
     stories: [
-      { id: "s1", name: "Implementar login com OAuth", issueType: "Story", epic: "Autenticação", storyPoints: 8, assignee: "Ana Silva", cycleTimeDays: 5, inProgressDays: 3, codeReviewDays: 2 },
-      { id: "s2", name: "Criar dashboard de métricas", issueType: "Story", epic: "Analytics", storyPoints: 13, assignee: "Carlos Souza", cycleTimeDays: 8, inProgressDays: 5, codeReviewDays: 3 },
-      { id: "s3", name: "Refatorar módulo de pagamentos", issueType: "Improvement", epic: "Pagamentos", storyPoints: 5, assignee: "Juliana Costa", cycleTimeDays: 3, inProgressDays: 2, codeReviewDays: 1 },
-      { id: "s4", name: "Adicionar filtros na listagem", issueType: "Task", epic: "Analytics", storyPoints: 3, assignee: "Pedro Lima", cycleTimeDays: 2, inProgressDays: 1, codeReviewDays: 1 },
-      { id: "s5", name: "Corrigir bug de notificações", issueType: "Bug", epic: "Notificações", storyPoints: 2, assignee: "Ana Silva", cycleTimeDays: 1, inProgressDays: 0.5, codeReviewDays: 0.5 },
-      { id: "s6", name: "API de exportação CSV", issueType: "Task", epic: "Analytics", storyPoints: 5, assignee: "Carlos Souza", cycleTimeDays: 4, inProgressDays: 3, codeReviewDays: 1 },
+      { id: "s1", name: "Implementar login com OAuth", issueType: "Story", epic: "Autenticação", storyPoints: 8, assignee: "Ana Silva", cycleTimeDays: 5, inProgressDays: 3, codeReviewDays: 2, done: true },
+      { id: "s2", name: "Criar dashboard de métricas", issueType: "Story", epic: "Analytics", storyPoints: 13, assignee: "Carlos Souza", cycleTimeDays: 8, inProgressDays: 5, codeReviewDays: 3, done: true },
+      { id: "s3", name: "Refatorar módulo de pagamentos", issueType: "Improvement", epic: "Pagamentos", storyPoints: 5, assignee: "Juliana Costa", cycleTimeDays: 3, inProgressDays: 2, codeReviewDays: 1, done: true },
+      { id: "s4", name: "Adicionar filtros na listagem", issueType: "Task", epic: "Analytics", storyPoints: 3, assignee: "Pedro Lima", cycleTimeDays: 2, inProgressDays: 1, codeReviewDays: 1, done: false },
+      { id: "s5", name: "Corrigir bug de notificações", issueType: "Bug", epic: "Notificações", storyPoints: 2, assignee: "Ana Silva", cycleTimeDays: 1, inProgressDays: 0.5, codeReviewDays: 0.5, done: true },
+      { id: "s6", name: "API de exportação CSV", issueType: "Task", epic: "Analytics", storyPoints: 5, assignee: "Carlos Souza", cycleTimeDays: 4, inProgressDays: 3, codeReviewDays: 1, done: true },
     ],
   },
   {
