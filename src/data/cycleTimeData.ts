@@ -36,11 +36,11 @@ export const sprints: Sprint[] = [
     id: "sprint-13",
     name: "Sprint 13",
     stories: [
-      { id: "s7", name: "Tela de configurações do usuário", issueType: "Story", epic: "Perfil", storyPoints: 5, assignee: "Juliana Costa", cycleTimeDays: 4, inProgressDays: 2.5, codeReviewDays: 1.5 },
-      { id: "s8", name: "Integração com Slack", issueType: "Story", epic: "Notificações", storyPoints: 8, assignee: "Pedro Lima", cycleTimeDays: 6, inProgressDays: 4, codeReviewDays: 2 },
-      { id: "s9", name: "Otimizar queries do relatório", issueType: "Improvement", epic: "Analytics", storyPoints: 3, assignee: "Ana Silva", cycleTimeDays: 2, inProgressDays: 1.5, codeReviewDays: 0.5 },
-      { id: "s10", name: "Implementar cache Redis", issueType: "Task", epic: "Infraestrutura", storyPoints: 8, assignee: "Carlos Souza", cycleTimeDays: 7, inProgressDays: 5, codeReviewDays: 2 },
-      { id: "s11", name: "Ajustar responsividade mobile", issueType: "Bug", epic: "UI/UX", storyPoints: 3, assignee: "Juliana Costa", cycleTimeDays: 2, inProgressDays: 1, codeReviewDays: 1 },
+      { id: "s7", name: "Tela de configurações do usuário", issueType: "Story", epic: "Perfil", storyPoints: 5, assignee: "Juliana Costa", cycleTimeDays: 4, inProgressDays: 2.5, codeReviewDays: 1.5, done: true },
+      { id: "s8", name: "Integração com Slack", issueType: "Story", epic: "Notificações", storyPoints: 8, assignee: "Pedro Lima", cycleTimeDays: 6, inProgressDays: 4, codeReviewDays: 2, done: true },
+      { id: "s9", name: "Otimizar queries do relatório", issueType: "Improvement", epic: "Analytics", storyPoints: 3, assignee: "Ana Silva", cycleTimeDays: 2, inProgressDays: 1.5, codeReviewDays: 0.5, done: true },
+      { id: "s10", name: "Implementar cache Redis", issueType: "Task", epic: "Infraestrutura", storyPoints: 8, assignee: "Carlos Souza", cycleTimeDays: 7, inProgressDays: 5, codeReviewDays: 2, done: false },
+      { id: "s11", name: "Ajustar responsividade mobile", issueType: "Bug", epic: "UI/UX", storyPoints: 3, assignee: "Juliana Costa", cycleTimeDays: 2, inProgressDays: 1, codeReviewDays: 1, done: true },
     ],
   },
 ];
