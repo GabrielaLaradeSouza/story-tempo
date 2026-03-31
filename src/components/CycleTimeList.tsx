@@ -155,6 +155,7 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
               <TableHead className="font-semibold text-center">In Progress</TableHead>
               <TableHead className="font-semibold text-center">Code Review</TableHead>
               <TableHead className="font-semibold text-center">Cycle Time</TableHead>
+              <TableHead className="font-semibold text-center">Done</TableHead>
               <TableHead className="font-semibold text-center w-[100px]">Ações</TableHead>
             </TableRow>
           </TableHeader>
