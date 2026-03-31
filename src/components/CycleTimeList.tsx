@@ -247,6 +247,20 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
                     <TableCell className="text-center text-sm font-semibold text-muted-foreground">
                       {(editData.inProgressDays + editData.codeReviewDays).toFixed(1)}d
                     </TableCell>
+                    <TableCell className="text-center">
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => updateEditField("done", !editData.done)}
+                        className="h-7 w-7"
+                      >
+                        {editData.done ? (
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Circle className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </Button>
+                    </TableCell>
                     <TableCell>
                       <div className="flex items-center justify-center gap-1">
                         <Button size="icon" variant="ghost" onClick={saveEdit} className="h-7 w-7 text-emerald-600">
