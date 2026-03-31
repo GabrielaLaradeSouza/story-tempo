@@ -18,7 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Clock, BookOpen, Bug, CheckSquare, Sparkles, Plus, Trash2, Pencil, Check, X } from "lucide-react";
+import { Clock, BookOpen, Bug, CheckSquare, Sparkles, Plus, Trash2, Pencil, Check, X, CheckCircle2, Circle } from "lucide-react";
 
 interface CycleTimeListProps {
   sprint: Sprint;
@@ -50,6 +50,7 @@ const createEmptyStory = (): Story => ({
   cycleTimeDays: 0,
   inProgressDays: 0,
   codeReviewDays: 0,
+  done: false,
 });
 
 const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
@@ -100,10 +101,22 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
     if (editingId === storyId) cancelEdit();
   };
 
-  const updateEditField = (field: keyof Story, value: string | number) => {
+  const updateEditField = (field: keyof Story, value: string | number | boolean) => {
     if (!editData) return;
     setEditData({ ...editData, [field]: value });
   };
+
+  const toggleDone = (storyId: string) => {
+    onUpdate({
+      ...sprint,
+      stories: sprint.stories.map((s) =>
+        s.id === storyId ? { ...s, done: !s.done } : s
+      ),
+    });
+  };
+
+  const totalSP = sprint.stories.reduce((sum, s) => sum + s.storyPoints, 0);
+  const deliveredSP = sprint.stories.filter((s) => s.done).reduce((sum, s) => sum + s.storyPoints, 0);
 
   return (
     <div className="space-y-4">
@@ -115,8 +128,13 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
               Média: {avgCycleTime.toFixed(1)} dias
             </span>
           </div>
+          <div className="flex items-center gap-2 rounded-lg bg-muted px-3 py-1.5">
+            <span className="text-sm font-semibold text-foreground">
+              SP Entregues: {deliveredSP} / {totalSP}
+            </span>
+          </div>
           <span className="text-sm text-muted-foreground">
-            {sprint.stories.length} stories concluídas
+            {sprint.stories.length} stories
           </span>
         </div>
         <Button size="sm" variant="outline" onClick={addStory} className="gap-1.5">
@@ -137,13 +155,14 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
               <TableHead className="font-semibold text-center">In Progress</TableHead>
               <TableHead className="font-semibold text-center">Code Review</TableHead>
               <TableHead className="font-semibold text-center">Cycle Time</TableHead>
+              <TableHead className="font-semibold text-center">Done</TableHead>
               <TableHead className="font-semibold text-center w-[100px]">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {sprint.stories.length === 0 && (
               <TableRow>
-                <TableCell colSpan={9} className="text-center text-muted-foreground py-8">
+                <TableCell colSpan={10} className="text-center text-muted-foreground py-8">
                   Nenhuma story adicionada. Clique em "Adicionar Story" para começar.
                 </TableCell>
               </TableRow>
@@ -228,6 +247,20 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
                     <TableCell className="text-center text-sm font-semibold text-muted-foreground">
                       {(editData.inProgressDays + editData.codeReviewDays).toFixed(1)}d
                     </TableCell>
+                    <TableCell className="text-center">
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => updateEditField("done", !editData.done)}
+                        className="h-7 w-7"
+                      >
+                        {editData.done ? (
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Circle className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </Button>
+                    </TableCell>
                     <TableCell>
                       <div className="flex items-center justify-center gap-1">
                         <Button size="icon" variant="ghost" onClick={saveEdit} className="h-7 w-7 text-emerald-600">
@@ -274,6 +307,20 @@ const CycleTimeList = ({ sprint, onUpdate }: CycleTimeListProps) => {
                     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${getCycleTimeColor(story.cycleTimeDays)}`}>
                       {story.cycleTimeDays}d
                     </span>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => toggleDone(story.id)}
+                      className="h-7 w-7"
+                    >
+                      {story.done ? (
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
+                      ) : (
+                        <Circle className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </Button>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center justify-center gap-1">
