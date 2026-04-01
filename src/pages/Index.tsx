@@ -57,7 +57,7 @@ const Index = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-foreground">
-              Cycle Time
+              Lead Time
             </h1>
             <p className="text-muted-foreground mt-1">
               Medir o tempo de execução das histórias dentro da sprint
@@ -101,16 +101,16 @@ const Index = () => {
           />
         </div>
 
-        {/* Section 1: Cycle Time List */}
+        {/* Section 1: Lead Time List */}
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Timer className="h-5 w-5 text-primary" />
             <h2 className="text-xl font-semibold text-foreground">
-              Cycle Time por Story
+              Lead Time por Story
             </h2>
           </div>
           <p className="text-sm text-muted-foreground">
-            Cycle Time (dias) = Data de entrada em In Progress até Done · Apenas dias úteis
+            Lead Time (dias) = Tempo total da story desde o início até a conclusão · Apenas dias úteis
           </p>
           <CycleTimeList sprint={selectedSprint} onUpdate={updateSprint} />
         </section>
@@ -120,7 +120,7 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <BarChart3 className="h-5 w-5 text-primary" />
             <h2 className="text-xl font-semibold text-foreground">
-              Cycle Time por Etapa
+              Tempo por Etapa
             </h2>
           </div>
           <p className="text-sm text-muted-foreground">
